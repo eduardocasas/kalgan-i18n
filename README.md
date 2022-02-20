@@ -18,13 +18,9 @@ use kalgan_i18n::Messages;
 let messages: Messages = Messages::new("tests");
 ```
 ```rust
-use kalgan_i18n::Messages;
-
 assert_eq!(messages.trans("en", "hello.world", HashMap::new()), "Hello World!");
 ```
 ```rust
-use kalgan_i18n::Messages;
-
 let mut parameters = HashMap::new();
 parameters.insert("user", "John".to_string());
 assert_eq!(messages.trans("en", "hello.somebody", parameters), "Hello John!");
