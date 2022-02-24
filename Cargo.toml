@@ -1,6 +1,6 @@
 [package]
 name = "kalgan_i18n"
-version = "0.9.0"
+version = "0.9.1"
 edition = "2018"
 description = "A translation tool that retrieves the messages stored in yaml files used by Kalgan Framework."
 homepage = "https://kalgan.eduardocasas.com"

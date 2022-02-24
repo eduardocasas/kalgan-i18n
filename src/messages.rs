@@ -1,6 +1,7 @@
 use log::{debug, error, info, trace, warn};
 use serde::Deserialize;
 use serde_yaml::Value;
+use std::ffi::OsStr;
 use std::{collections::HashMap, fs, path::Path};
 
 pub(crate) fn generate(source: &str) -> crate::Messages {
@@ -64,8 +65,17 @@ fn walk_folder_files(dir: &Path, parameters: &mut HashMap<String, String>) {
                         debug!("{} is dir", path.display());
                         walk_folder_files(&path, parameters);
                     } else {
-                        debug!("{} is file", path.display());
-                        get_file_content(&path, parameters);
+                        match path.extension().and_then(OsStr::to_str) {
+                            Some(extension) => {
+                                if extension.to_lowercase() == "yaml" {
+                                    debug!("{} is file", path.display());
+                                    get_file_content(&path, parameters);
+                                } else {
+                                    debug!("{} is skipped.", path.display());
+                                }
+                            }
+                            None => debug!("{} is skipped.", path.display()),
+                        }
                     }
                 }
             }

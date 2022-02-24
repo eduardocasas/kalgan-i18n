@@ -30,7 +30,7 @@ assert_eq!(messages.trans("en", "hello.somebody", parameters), "Hello John!");
 For further information please visit:
 
 * [Official Kalgan Site](https://kalgan.eduardocasas.com)
-* [API Documentation on docs.rs](https://docs.rs/crate/kalgan-i18n/latest)
+* [API Documentation on docs.rs](https://docs.rs/kalgan-i18n)
 
 
 ## License
